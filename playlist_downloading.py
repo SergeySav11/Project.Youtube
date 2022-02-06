@@ -18,14 +18,17 @@ def download():
     print(link) #В переменной !link! хранится ссылка на видео
     print(qual) #В переменной !qual! хранится качество видео
 
+res = ['"144p', '360p"', '720p"', '"1080', '="108', '"1080', '"720p', '="720', '"720p', '"480p', 's="48', '="480', '="360', 's="36', '="360', '="240', 's="24', '="240', '="144', 's="14', '="144', '="48k', '="128', 'r="50', 'r="70', 'r="16']
+
 
 def qualitization():
     global link
+    global qualit
     link = txt.get()
 
     pass
 
-    qualit = [480,560,1080,2500,1000,800] #Сюда укажите качества видео массивом
+    qualit = [res[0][1:],res[1][:4],res[2][:4]] #Сюда укажите качества видео массивом
 
     quality(qualit)
     txt.destroy()
@@ -45,3 +48,4 @@ txt.grid(column=0, row=1)
 btn = Button(window, text="Скачать!", font=("Arial Bold", 10), command=qualitization)
 btn.grid(column=0, row=2)
 window.mainloop()
+print(qualit)

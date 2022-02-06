@@ -8,12 +8,11 @@ def download(url):
     vid = list(enumerate(resolutions))
     #print(my_video.title)
     #print(my_video.thumbnail_url)
-
     #Создание списка с качествами
-    res = []
+    res = list()
     for i in vid:
-         print(i)
-    print()
+        res.append(str(i)[50:55])
+    print(res)
     #Переменная хранящая выбраное качество
     strm = int(input())
     #Cкачивание видео
@@ -23,4 +22,4 @@ def download(url):
 
 
 
-download('https://www.youtube.com/watch?v=LmEcyQnfpDA')
+download('https://www.youtube.com/watch?v=EtUKgBH3raw')
