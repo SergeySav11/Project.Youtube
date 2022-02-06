@@ -19,7 +19,7 @@ def download(url):
     #Cкачивание видео
     resolutions[strm].download()
     #Возвращение списка с качествами,
-    # return int(res)
+    # return int(res
 
 
 
