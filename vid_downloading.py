@@ -12,15 +12,15 @@ def download(url):
     #Создание списка с качествами
     res = []
     for i in vid:
-        res = res.append(str(i)[46:58])
+         print(i)
     print()
     #Переменная хранящая выбраное качество
-    strm = input()
+    strm = int(input())
     #Cкачивание видео
     resolutions[strm].download()
     #Возвращение списка с качествами,
-    return int(res)
+    # return int(res)
 
 
 
-download('https://www.youtube.com/watch?v=LmEcyQnfpDA',)
+download('https://www.youtube.com/watch?v=LmEcyQnfpDA')
