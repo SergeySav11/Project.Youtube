@@ -1,6 +1,10 @@
-
+from pytube import YouTube
 from tkinter import *
 from tkinter.ttk import Combobox
+
+
+
+
 
 def quality(types):
     global combo
@@ -15,10 +19,12 @@ def download():
 
     pass
 
+
     print(link) #В переменной !link! хранится ссылка на видео
     print(qual) #В переменной !qual! хранится качество видео
 
-res = ['"144p', '360p"', '720p"', '"1080', '="108', '"1080', '"720p', '="720', '"720p', '"480p', 's="48', '="480', '="360', 's="36', '="360', '="240', 's="24', '="240', '="144', 's="14', '="144', '="48k', '="128', 'r="50', 'r="70', 'r="16']
+
+# res = ['"144p', '360p"', '720p"', '"1080', '="108', '"1080', '"720p', '="720', '"720p', '"480p', 's="48', '="480', '="360', 's="36', '="360', '="240', 's="24', '="240', '="144', 's="14', '="144', '="48k', '="128', 'r="50', 'r="70', 'r="16']
 
 
 def qualitization():
@@ -26,9 +32,26 @@ def qualitization():
     global qualit
     link = txt.get()
 
-    pass
+    def downloading(link):
+        my_video = YouTube(link)
+        resolutions = my_video.streams
+        vid = list(enumerate(resolutions))
+        # print(my_video.title)
+        # print(my_video.thumbnail_url)
+        # Создание списка с качествами
+        res = list()
+        for i in vid:
+            res.append(str(i)[50:55])
+        # Переменная хранящая выбраное качество
+        strm = int(input())
+        # Cкачивание видео
+        resolutions[strm].download()
+        # Возвращение списка с качествами,
+        return res
 
-    qualit = [res[0][1:],res[1][:4],res[2][:4]] #Сюда укажите качества видео массивом
+    res_1 = res
+
+    qualit = [res_1[0][1:],res_1[1][:4],res_1[2][:4]] #Сюда укажите качества видео массивом
 
     quality(qualit)
     txt.destroy()
@@ -37,7 +60,7 @@ def qualitization():
 
 
 
-
+print(download())
 window = Tk()
 window.title("Youtube Downloader")
 window.geometry('484x300')
