@@ -17,12 +17,13 @@ def download(url):
         #Переменная хранящая выбраное качество
         strm = int(input())
         #Cкачивание видео
+        o = res
         resolutions[strm].download()
         #Возвращение списка с качествами,
-        return res
+        return o
     except:
         error = ('Ошибка,проверьте ссылку')
-        return  error
+        return error
 
 
 
