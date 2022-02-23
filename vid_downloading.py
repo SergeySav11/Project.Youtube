@@ -7,6 +7,7 @@ def download(url):
         my_video = YouTube(url)
         resolutions = my_video.streams
         vid = list(enumerate(resolutions))
+        print(type(vid))
         #print(my_video.title)
         #print(my_video.thumbnail_url)
         #Создание списка с качествами
@@ -29,4 +30,13 @@ def download(url):
 
 
 
-print(download('https://www.youtube.com/watch?v=EtUKgBH3raw'))
+def qualitization():
+    global res
+    global resolutions
+    link_vid = txt.get()
+    my_video = YouTube(link_vid)
+    resolutions = my_video.streams.filter(progressive=True)
+    res = list()
+    for i in range(len(resolutions)):
+        res.append(resolutions[i].resolution)
+    print(resolutions)
